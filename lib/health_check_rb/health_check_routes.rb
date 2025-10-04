@@ -9,6 +9,8 @@ module ActionDispatch
       end
 
       def add_health_check_rb_routes(prefix = nil)
+        return unless HealthCheckRb.declare_routes
+
         HealthCheckRb.uri = prefix if prefix
         match "#{HealthCheckRb.uri}(/:checks)(.:format)", controller: 'health_check_rb/health_check', action: :index, via: %i[get post],
                                                           defaults: { format: 'txt' }

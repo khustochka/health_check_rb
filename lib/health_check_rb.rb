@@ -17,6 +17,10 @@ module HealthCheckRb
   mattr_accessor :failure
   self.failure = 'health_check failed'
 
+  # Whether to declare routes
+  mattr_accessor :declare_routes
+  self.declare_routes = true
+
   # Timeout in seconds used when checking smtp server
   mattr_accessor :smtp_timeout
   self.smtp_timeout = 30.0
